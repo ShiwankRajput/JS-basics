@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- CSS -->
+    <style>
+        .box{
+            border: 3px solid black;
+            border-radius: 5px;
+            width: 500px;
+            margin: 5px;
+        }
+
+        #result{
+            height: 50px;
+            width: 200px;
+            border: 1px solid black;
+            margin-left: 10px;
+        }
+
+        #classify{
+            height: 10px;
+            width: 150px;
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <!-- HTML -->
+    <div class="box">
+        <h1>-- BMI CALCULATOR --</h1>
+
+        <form>
+            <label for="height">Enter height(cm) :: </label>
+            <input type="text" id="height"></input><br><br>
+
+            <label for="weight">Enter weight(kg) :: </label>
+            <input type="text" id="weight"><br><br>
+
+            <button>Calculate</button>
+        </form>
+
+        <p>Result > </p>
+        <div id="result"></div>
+        <div id="classify"></div>
+
+        <br><br>
+        <h3>BMI guide : </h3>
+        <ul>
+            <li>Underweight : BMI is below 18.5</li>
+            <li>Healthy weight : BMI is between 18.5 and 24.9</li>
+            <li>Overweight : BMI is between 25 and 29.9</li>
+            <li>Obses : BMI is 30 or higher</li>
+        </ul>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const form = document.querySelector('form')
+
+        form.addEventListener('submit',function(e){
+            e.preventDefault();   //server prr na jaaye isliye hum usse phle hi rokk rhe hai
+
+            const height = parseInt(document.querySelector('#height').value);
+            const weight = parseInt(document.querySelector('#weight').value);
+            const result = document.querySelector('#result');
+            const classify = document.querySelector('#classify');
+
+            if(height === '' || height<=0 || isNaN(height)){
+                result.innerHTML = "Enter valid height"
+            }
+            else if(weight === '' || weight<=0 || isNaN(weight)){
+                result.innerHTML = "Enter valid weight"
+            }
+            else{
+                const bmi = ( (weight / (height*height)) * 10000 ).toFixed(2);
+                result.innerHTML = bmi;
+
+                if(bmi<18.5){
+                    classify.innerHTML = "underweight";
+                }
+                else if(bmi>=18.5 && bmi<=24.9){
+                    classify.innerHTML = "Healthy weight";
+                }
+                else if(bmi>=25 && bmi<=29.9){
+                    classify.innerHTML = "overweight";
+                }
+                else{
+                    classify.innerHTML = "Obese";
+                }
+            }
+
+        })
+    </script>
+
+
+</body>
+</html>

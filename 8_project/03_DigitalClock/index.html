@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body{
+            background-color: grey;
+            color: white;
+        }
+
+        .box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .clock{
+            color: black;
+            height: 40px;
+            width: 105px;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: blanchedalmond;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        p{
+            font-weight: bolder;
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+    <div class="box">
+        <p>DIGITAL CLOCK</p>
+        <div class="clock">
+
+        </div>
+    </div>
+
+
+    <script>
+
+        const clock = document.querySelector('.clock');
+
+        setInterval(function(){
+            
+            const date = new Date()
+            clock.innerHTML = date.toLocaleTimeString();
+
+        },1000);
+
+    </script>
+</body>
+</html>

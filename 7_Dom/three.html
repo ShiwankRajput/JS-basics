@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>creating element in Dom</title>
+</head>
+<body style="background-color: #212121; color: aliceblue;">
+    
+</body>
+<script>
+
+    /* 
+        creating element in DOM.
+    */
+
+
+     const a = document.createElement('div')
+     console.log(a);
+     a.className = 'main'
+     a.id = '101'
+     a.setAttribute("title","Shiwank")
+     a.style.backgroundColor="green"
+     a.style.padding='10px'
+    //  a.innerHTML="hello everyone"  (we does not use this to add text because it first fetch the written text in the element and then overwrites it...)
+    const addText = document.createTextNode("hello everyone")
+    a.appendChild(addText)
+
+    //though the above context is added in the memory.To add this it into the browser we do below things -->
+
+    document.body.appendChild(a)
+</script>
+</html>

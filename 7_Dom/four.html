@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit and remove element in DOM</title>
+</head>
+<body style="background-color: #212121; color: aliceblue;">
+    
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+
+</body>
+
+<script>
+    //here we used to traverse the whole tree of the document to add element
+    function addLanguage(langName){
+        const li = document.createElement('li')
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("python")
+
+
+    //here there is no need to traverse the whole tree of document
+    function optiSol_ToAdd_Lang(langName){
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+    optiSol_ToAdd_Lang("Java")
+    optiSol_ToAdd_Lang("Cpp");
+
+
+    //editing value...
+    const secondLang = document.querySelector("li:nth-child(2)")
+    // secondLang.innerHTML = "React"
+    const newLi = document.createElement('li')
+    newLi.textContent = "react"
+    secondLang.replaceWith(newLi)
+
+    //editing value....
+    const firstLang = document.querySelector('li:first-child')
+    // firstLang.innerHTML = "golang"
+    const n = document.createElement('li')
+    n.textContent = "golang"
+    firstLang.replaceWith(n)
+
+    //removing element
+    const fourthLang = document.querySelector('li:last-child')
+    fourthLang.remove()
+
+</script>
+
+</html>

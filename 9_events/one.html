@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <!-- Javascript ke andrr jitne bhi events hote hai woh sequentially hi run hote hai,lekin kuvh exceptions hai -->
+
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <!-- put after alt in owl image, it is the first method -> [ onclick="alert('owl') ]" -->
+
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+
+            <li><a style="color: aliceblue;" href="https://google.com" id="google" target="_blank">Google</a></li>
+
+        </ul>
+   </div>
+</body>
+
+
+<script>
+
+    // document.getElementById('owl').onclick = function(){
+    //     alert('owl clicked')
+    // }
+    // [2nd method], but this provides less functionality as compared to events
+
+    // document.getElementById('owl').addEventListener('click',function(){
+    //     alert('owl clicked again')
+    // })
+    //[3rd method], uses event listener method, takes the event such as click and a call back function
+
+    //other methods for event ar ->
+    // attachEvent()
+    //jQuery - on  , its a framework just like react.
+
+
+
+    /*
+        Event object ->
+    */ 
+    
+    // document.getElementById('owl').addEventListener('click',function(e){
+    //     console.log(e);
+    // },false)
+    //also learn about type, timestamp, defaultPrevented, target, toElement, srcElement, currentTarget, clientX,clientY, screenX, screenY, altKey, ctrlKey, shiftKey, keyCode
+
+    /*
+        Event Propogation
+    */
+
+    //do context hote hai ek event bubling, ek event capturing
+
+    // 1) bubbling -> (flow from bottom to top)
+
+    // document.querySelector('#images').addEventListener('click',function(e){
+    //     alert("clicked inside ul")
+    // },false)
+
+    // document.querySelector('#prayer').addEventListener('click',function(e){
+    //     alert("prayer clicked")
+    // },false)  //false is by default
+    //prayer clicked and then after clicked inside ul due to parent element 
+
+    // 2) capturing -> (flows from top to bottom)
+
+    // document.querySelector('#images').addEventListener('click',function(e){
+    //     alert("clicked inside ul")
+    //     e.stopPropagation();  //stop propogation to prayer image
+    // },true)
+    // document.querySelector('#prayer').addEventListener('click',function(e){
+    //     alert("prayer clicked")
+    // },true)
+
+
+    // document.querySelector('#google').addEventListener('click',function(e){
+    //     e.preventDefault();
+    //     console.log('clicked');
+    // })
+
+
+    //removing element
+
+    document.getElementById('images').addEventListener('click',function(e){
+        console.log(e);
+        console.log(e.target);
+        console.log(e.target.parentNode);
+
+        if(e.target.tagName === 'IMG'){
+            const removeIt = e.target.parentNode
+            removeIt.remove();
+            //OR
+            // removeIt.parentNode.removeChild(removeIt);
+        }
+        
+    })
+
+</script>
+
+</html>
