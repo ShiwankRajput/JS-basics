@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="stop">Stop</button>
+</body>
+
+<script>
+
+    //setTimeout and clearTimeout ----> 
+    //(setTimeout ek hi baar krta hai kisse chiz ko)
+    
+
+    const sayName = function(){
+        console.log('Shiwank');
+    }
+
+    const say = function(){
+        document.querySelector('h1').innerHTML = 'Say Name';
+    }
+
+    const clear = setTimeout(say,5000);  //3000 is time in ms and say is a handler or a call back function.
+    setTimeout(sayName,3000);
+
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(clear);
+    })
+
+
+</script>
+</html>
