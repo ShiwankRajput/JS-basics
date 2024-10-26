@@ -24,13 +24,12 @@
         document.querySelector('h1').innerHTML = 'Say Name';
     }
 
-    const clear = setTimeout(say,5000);  //3000 is time in ms and say is a handler or a call back function.
-    setTimeout(sayName,3000);
+    const clear = setTimeout(say,6000);  //6000 is time in ms and say is a handler or a call back function.
+    setTimeout(sayName,5000);
 
     document.querySelector('#stop').addEventListener('click',function(){
         clearTimeout(clear);
     })
-
 
 </script>
 </html>

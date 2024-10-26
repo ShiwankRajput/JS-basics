@@ -1,25 +1,3 @@
-//INTRODUCTION ---->
-
-
-const promiseOne = new Promise(function(resolve,reject){   //promises takes call back functions
-    //Do async task
-    //DB calls, cryptography, networks
-
-    setTimeout(function(){
-        console.log("Async task1 is completed");
-        resolve()  //directly connects with then()
-    },2000)
-})
-
-//consumption of promises
-
-//then() has direct connection with resolve,aur yaha pr saare values return hoti hai
-promiseOne.then(function(){
-    console.log("Promise1 resolved");
-})
-
-
-
 // creating promises
 
 new Promise(function(resolve,reject){
@@ -107,34 +85,3 @@ async function consumePromise(){  //async do not catch an error so we use try-ca
 
 consumePromise()
 
-
-
-// ------------------------------------------------------------------------------>
-
-
-// async function getUser(){
-//     try {
-//         const response = await fetch('https://api.github.com/users/ShiwankRajput')
-//         const data = await response.json()
-//         console.log(data);
-//     } catch (error) {
-//         console.log('E: ' ,error);
-//     }
-// }
-
-// getUser()
-
-
-
-// --------------------------------------------------------------------->
-
-fetch('https://api.github.com/users/ShiwankRajput')
-.then(function(response){
-    return response.json();
-})
-.then(function(data){
-    console.log(data);
-})
-.catch(function(error){
-    console.log("E: ", error);
-})
