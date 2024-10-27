@@ -55,33 +55,3 @@ promiseFour.then(function(user){  //chaining of then,hence flow moves from top t
 }).finally(function(){
     console.log("Promise is either resolved or rejected");
 })
-
-
-
-const promiseFive = new Promise(function(resolve,reject){
-    setTimeout(function(){
-        let error = false
-        if(!error){
-            resolve({
-                username : "hello",
-                password : "123@"
-            })
-        }
-        else{
-            reject('ERROR : error occured')
-        }
-    },8000)
-});
-
-async function consumePromise(){  //async do not catch an error so we use try-catch block
-    try{
-        const response = await promiseFive
-        console.log(response);
-    }
-    catch(error){
-        console.log("E:" , error);
-    }
-}
-
-consumePromise()
-
