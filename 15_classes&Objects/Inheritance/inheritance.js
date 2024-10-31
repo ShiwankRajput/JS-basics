@@ -38,7 +38,7 @@ class Engineer extends person{
 
 class Doctor extends person{
     work(){
-        super.eat();  //invokes to the eat method of parent class.
+        super.eat();  //invokes to the eat method of parent class.It is used in place of call
         console.log("Doctor treats patient");
     }
 }
@@ -50,3 +50,8 @@ ShiwankEngineer.eat();
 let ShiwankDoctor = new Doctor();
 ShiwankDoctor.work();
 ShiwankDoctor.sleep();
+
+console.log(ShiwankEngineer === ShiwankDoctor);   //false
+console.log(ShiwankEngineer === Engineer);    //false
+console.log(ShiwankEngineer instanceof Engineer);  //true
+console.log(ShiwankEngineer instanceof person);   //true

@@ -4,7 +4,7 @@ function setName(name){
 }
 
 function printDetails(name,email,number){
-    setName.call(this,name);
+    setName.call(this,name);  
 
     this.email = email;
     this.number = number;

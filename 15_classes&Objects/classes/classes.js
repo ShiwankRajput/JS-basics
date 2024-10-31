@@ -44,3 +44,4 @@ let fortuner = new ToyotaCar("fortuner",10);
 console.log(fortuner);
 let lexus = new ToyotaCar(20);
 console.log(lexus);
+lexus.stop();
