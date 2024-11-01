@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;">
+    <button id="skyBlue">skyBlue</button>
+    <button id="orange">orange</button>
+</body>
+<script>
+    function colorChanger(color){
+        // document.body.style.backgroundColor = `${color}`
+
+        //closure property
+        function changeIt(){
+            document.body.style.backgroundColor = `${color}`
+        }
+
+        return changeIt   //here whole lexical scope of the inner and outer function     will be return.
+
+    }
+
+    document.getElementById('skyBlue').onclick = colorChanger("skyBlue")
+    document.getElementById('orange').onclick = colorChanger("orange")
+    // here directly function will execute so we have to learn about closure property
+
+</script>
+</html>

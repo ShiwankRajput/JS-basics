@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;">
+    
+</body>
+
+<script>
+    // Lexical scoping in JS
+
+    function outer(){
+        let num = 5;
+        // console.log(num2);   //not available
+        
+        function innerOne(){
+            let num2 = 10;
+            console.log(num);
+            console.log(num2);
+        }
+
+        innerOne();
+        
+        function innerTwo(){
+            console.log(num);
+            console.log(num2);  //not available
+        }
+
+        innerTwo();
+    }
+
+    outer();
+
+</script>
+</html>
