@@ -11,7 +11,7 @@ new Promise(function(resolve,reject){
 })
 
 
-const PromiseThird = new Promise(function(resolve,raject){
+const PromiseThird = new Promise(function(resolve,reject){
     setTimeout(function(){
         resolve({
             username : "Shiwank",
